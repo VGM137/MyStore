@@ -5,7 +5,7 @@ const routerApi = require('./routes')
 const {logErrors, errorHandler, boomErrorHandler} = require('./middlewares/errorHandlers')
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 3000;
 
 //middle de express para recibir datos de un post
 app.use(express.json());
@@ -13,7 +13,7 @@ app.use(express.json());
 const whitelist = [] //Dentro del array podemos incluir los dominios desde los cuales sí se puede recibir solicitudes.
 const options = {
   origin: (origin, callback) => {
-    if(whitelist.includes(origin)){
+    if(whitelist.includes(origin) || !origin){
       callback(null, true)
     } else {
       callback(new Error('No permitido'))
