@@ -1,0 +1,10 @@
+API RESTful
+  REST: Representational State Transfer
+    GET
+    PUT
+    PATCH
+    POST
+    DETLETE
+
+Single Responsability Principle
+  Cada elemento del código debe tener una sola responsabilidad.
